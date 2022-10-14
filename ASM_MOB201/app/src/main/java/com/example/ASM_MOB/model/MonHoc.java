@@ -1,10 +1,21 @@
 package com.example.ASM_MOB.model;
 
+import java.util.ArrayList;
+
 public class MonHoc {
     private String code;
     private String name;
     private String teacher;
     private int isRegister;
+    private ArrayList<ThongTin> listTT;
+
+    public MonHoc(String code, String name, String teacher, int isRegister, ArrayList<ThongTin> listTT) {
+        this.code = code;
+        this.name = name;
+        this.teacher = teacher;
+        this.isRegister = isRegister;
+        this.listTT = listTT;
+    }
 
     public MonHoc(String code, String name, String teacher) {
         this.code = code;

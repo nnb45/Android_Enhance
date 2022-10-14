@@ -13,6 +13,6 @@ public class RegisterAvtivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_avtivity);
 
-        recyclerRegisterCourse = findViewById(R.id.recylerRegisterCourse);
+//        recyclerRegisterCourse = findViewById(R.id.recylerRegisterCourse);
     }
 }

@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.ASM_MOB.helper.DbHelper;
 import com.example.ASM_MOB.model.MonHoc;
+import com.example.ASM_MOB.model.ThongTin;
 
 import java.util.ArrayList;
 
@@ -51,5 +52,13 @@ public class DangKyMonHocDAO {
 //        if(check == -1)
 //            return false;
 //        return true;
+//    }
+
+//    public ArrayList<ThongTin> getThongTinMonHoc(String code){
+//        ArrayList<ThongTin> list = new ArrayList<>();
+//        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
+//        Cursor cursor = sqLiteDatabase.rawQuery("SELECT date, address FROM THONGTIN WHERE");
+//
+//        return list;
 //    }
 }
