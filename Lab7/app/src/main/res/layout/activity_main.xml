@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".MainActivity">
+
+   <ImageView
+       android:id="@+id/imgAni"
+       android:layout_width="match_parent"
+       android:layout_height="300dp"
+       android:layout_margin="10dp"
+       android:src="@drawable/pc"/>
+
+    <Button
+        android:id="@+id/btnRota"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:textColor="#5f3159"
+        android:text="rotation"/>
+
+    <Button
+        android:id="@+id/btnMoving"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:textColor="#5f3159"
+        android:text="moving"/>
+
+    <Button
+        android:id="@+id/btnZoom"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:textColor="#5f3159"
+        android:text="zoom"/>
+
+</LinearLayout>
