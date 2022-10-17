@@ -4,15 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.AbsListView;
 
-public class RegisterAvtivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
     RecyclerView recyclerRegisterCourse;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_avtivity);
+        setContentView(R.layout.activity_register_activity);
 
-//        recyclerRegisterCourse = findViewById(R.id.recylerRegisterCourse);
+        recyclerRegisterCourse = findViewById(R.id.recyclerRegisterCourse);
+
+
     }
 }

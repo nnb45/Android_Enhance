@@ -21,10 +21,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //anh xa
-        linearCourse =findViewById(R.id.linearCourse);
-        linearMap =findViewById(R.id.linearMap);
-        linearNews =findViewById(R.id.linearNews);
-        linearSocial =findViewById(R.id.linearSocial);
+        linearCourse = findViewById(R.id.linearCourse);
+        linearMap = findViewById(R.id.linearMap);
+        linearNews = findViewById(R.id.linearNews);
+        linearSocial = findViewById(R.id.linearSocial);
 
         // event click Course
         linearCourse.setOnClickListener(new View.OnClickListener() {

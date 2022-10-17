@@ -18,7 +18,7 @@ public class CourseActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CourseActivity.this, RegisterAvtivity.class));
+                startActivity(new Intent(CourseActivity.this, RegisterActivity.class));
             }
         });
     }
