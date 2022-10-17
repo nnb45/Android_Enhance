@@ -5,35 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     android:padding="10dp"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnBai1"
-        android:layout_margin="10dp"
+    <ImageView
+        android:id="@+id/imgAni"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18dp"
-        android:textColor="#5f3159"
-        android:text="bai 1"/>
+        android:layout_height="300dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/pc"/>
 
     <Button
-        android:id="@+id/btnBai2"
+        android:id="@+id/btnRota"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18dp"
         android:textColor="#5f3159"
-        android:text="bai 2"/>
+        android:text="rotation"/>
 
     <Button
-        android:id="@+id/btnBai3"
+        android:id="@+id/btnMoving"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18dp"
         android:textColor="#5f3159"
-        android:text="bai 3"/>
+        android:text="moving"/>
+
+    <Button
+        android:id="@+id/btnZoom"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:textColor="#5f3159"
+        android:text="zoom"/>
 
 </LinearLayout>

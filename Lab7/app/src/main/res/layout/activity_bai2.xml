@@ -5,35 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    android:padding="10dp"
-    tools:context=".MainActivity">
+    tools:context=".Bai2Activity">
+
+    <ImageView
+        android:id="@+id/imgPC"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/pc"/>
 
     <Button
-        android:id="@+id/btnBai1"
+        android:id="@+id/btnPC"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18dp"
+        android:textSize="20dp"
         android:textColor="#5f3159"
-        android:text="bai 1"/>
+        android:textStyle="bold"
+        android:text="PC"/>
 
     <Button
-        android:id="@+id/btnBai2"
+        android:id="@+id/btnCase"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18dp"
+        android:textSize="20dp"
         android:textColor="#5f3159"
-        android:text="bai 2"/>
+        android:textStyle="bold"
+        android:text="case"/>
 
     <Button
-        android:id="@+id/btnBai3"
+        android:id="@+id/btnGear"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18dp"
+        android:textSize="20dp"
         android:textColor="#5f3159"
-        android:text="bai 3"/>
+        android:textStyle="bold"
+        android:text="gear"/>
 
 </LinearLayout>
