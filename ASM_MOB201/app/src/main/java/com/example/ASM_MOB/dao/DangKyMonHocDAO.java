@@ -25,7 +25,7 @@ public class DangKyMonHocDAO {
         ArrayList<MonHoc> list = new ArrayList<>();
 
         SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT mh.code, mh.name, mh.teacher, dk.id FROM MONHOC mh LEFT JOIN DANGKY dk ON mh.code = dk.code AND dk.code = ?", new String[]{String.valueOf(id)});
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT mh.code, mh.name, mh.teacher, dk.id FROM MONHOC mh LEFT JOIN DANGKY dk ON mh.code = dk.code AND dk.id = ?", new String[]{String.valueOf(id)});
         if (cursor.getCount() !=0){
             cursor.moveToFirst();
             do{

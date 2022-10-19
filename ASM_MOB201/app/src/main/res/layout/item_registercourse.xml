@@ -3,8 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="10dp"
+    android:layout_margin="15dp"
     app:cardElevation="5dp"
+    android:orientation="vertical"
     app:cardCornerRadius="15dp">
 
 
@@ -15,10 +16,12 @@
         android:weightSum="10">
 
     <ImageView
-        android:layout_width="10dp"
+        android:id="@+id/imgCourse"
+        android:layout_marginStart="15dp"
+        android:layout_width="20dp"
         android:layout_height="match_parent"
         android:layout_weight="2"
-        android:src="@mipmap/android"/>
+        android:src="@mipmap/ic_course_project"/>
 
     <LinearLayout
         android:layout_width="0dp"
@@ -28,26 +31,35 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/txtTenKH"
+            android:id="@+id/txtCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:src="@mipmap/android"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:text="code" />
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Lập trình Android"
             android:textColor="@color/orange"
             android:textSize="22sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txtNoiDungKH"
+            android:id="@+id/txtTeacher"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:src="@mipmap/android"
-            android:text="Ca6 - 357  |   22/02/2022" />
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:text="teacher"/>
 
         <Button
-            android:id="@+id/btnKH"
+            android:id="@+id/btnRegisterItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -56,5 +68,8 @@
 
         </LinearLayout>
     </LinearLayout>
+
+        <!--    cardview 2-->
+
 
 </androidx.cardview.widget.CardView>

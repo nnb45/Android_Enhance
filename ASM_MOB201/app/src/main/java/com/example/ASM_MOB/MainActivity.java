@@ -7,13 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.example.ASM_MOB.adapter.DangKiMonHocAdapter;
 import com.example.ASM_MOB.dao.DangKyMonHocDAO;
 import com.example.ASM_MOB.model.MonHoc;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     LinearLayout linearCourse,linearMap, linearNews, linearSocial;
+    DangKiMonHocAdapter dangKiMonHocAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
         linearMap = findViewById(R.id.linearMap);
         linearNews = findViewById(R.id.linearNews);
         linearSocial = findViewById(R.id.linearSocial);
+
+//        //img for recyclerview
+//        ArrayList<RegisterActivity> registerActivities = new ArrayList<>();
+//        dangKiMonHocAdapter = new DangKiMonHocAdapter(this);
 
         // event click Course
         linearCourse.setOnClickListener(new View.OnClickListener() {
@@ -60,5 +67,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
 }

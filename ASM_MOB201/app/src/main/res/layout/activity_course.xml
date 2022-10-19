@@ -47,7 +47,7 @@
                 android:text="REGISTER COURSE"
                 android:textAlignment="center"
                 android:textColor="@color/orange"
-                android:textSize="26sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -55,7 +55,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvCourse"
+        android:id="@+id/cvRegistered"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_rowWeight="1"
@@ -85,7 +85,7 @@
                 android:text="REGISTERED COURSE"
                 android:textAlignment="center"
                 android:textColor="@color/orange"
-                android:textSize="26sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
