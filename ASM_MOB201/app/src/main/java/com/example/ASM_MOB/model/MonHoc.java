@@ -1,10 +1,8 @@
 package com.example.ASM_MOB.model;
 
-import com.example.ASM_MOB.R;
 import com.example.ASM_MOB.RegisterActivity;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MonHoc extends RegisterActivity implements Serializable {
     private int imgID;
@@ -25,7 +23,7 @@ public class MonHoc extends RegisterActivity implements Serializable {
         this.listTT = listTT;
     }
 
-    public MonHoc(int imgID, String code, String name, String teacher, int isRegister, ArrayList<ThongTin> listTT) {
+    public MonHoc(String code, String name, String teacher, int isRegister, ArrayList<ThongTin> listTT) {
         this.imgID = imgID;
         this.code = code;
         this.name = name;
@@ -34,7 +32,8 @@ public class MonHoc extends RegisterActivity implements Serializable {
         this.listTT = listTT;
     }
 
-    private String code;
+
+    private String code ;
     private String name;
     private String teacher;
     private int isRegister;
@@ -67,7 +66,9 @@ public class MonHoc extends RegisterActivity implements Serializable {
         this.name = name;
         this.teacher = teacher;
         this.isRegister = isRegister;
+
     }
+
 
     public String getCode() {
         return code;

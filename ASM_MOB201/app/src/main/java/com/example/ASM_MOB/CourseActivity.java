@@ -19,8 +19,24 @@ public class CourseActivity extends AppCompatActivity {
         cvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CourseActivity.this, RegisterActivity.class));
+                Intent intent = new Intent(CourseActivity.this, RegisterActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("isAll", true);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
-    }
+        cvRegistered.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CourseActivity.this, RegisterActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("isAll", false);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+
+        }
+
 }

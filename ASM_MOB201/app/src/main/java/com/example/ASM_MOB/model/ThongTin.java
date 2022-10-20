@@ -1,6 +1,8 @@
 package com.example.ASM_MOB.model;
 
-public class ThongTin {
+import java.io.Serializable;
+
+public class ThongTin implements Serializable {
     private String date;
     private String address;
 

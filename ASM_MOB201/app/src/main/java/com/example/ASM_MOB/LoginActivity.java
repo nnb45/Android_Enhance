@@ -12,10 +12,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.example.ASM_MOB.service.KiemTraDangNhapService;
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 
-public class LoginActivity extends AppCompatActivity {
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class LoginActivity<callbackManager> extends AppCompatActivity {
 
     IntentFilter intentFilter;
+    CallbackManager callbackManager;
+    LoginButton btnFacebook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +37,17 @@ public class LoginActivity extends AppCompatActivity {
         EditText edtUser = findViewById(R.id.edtUser);
         EditText edtPass = findViewById(R.id.edtPass);
         Button btnLogin = findViewById(R.id.btnLogin);
+
+//        btnFacebook = findViewById(R.id.btnFacebook);
+//        callbackManager = CallbackManager.Factory.create();
+//        //check người dùng đã đăng nhập trước đó hay chưa?
+//        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+//        boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
+//        if (isLoggedIn) {
+//            getUserProfile(accessToken);
+//            Toast.makeText(this, "Đã đăng nhập", Toast.LENGTH_SHORT).show();
+//        }
+
 
         intentFilter = new IntentFilter();
         intentFilter.addAction("kiemTraDangNhap");
@@ -46,6 +69,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     @Override
     protected void onResume() {

@@ -9,6 +9,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.ASM_MOB.adapter.DangKiMonHocAdapter;
 import com.example.ASM_MOB.model.MonHoc;
 import com.example.ASM_MOB.service.DKMonHocService;
@@ -17,6 +20,7 @@ import java.util.ArrayList;
 public class RegisterActivity extends AppCompatActivity {
     RecyclerView recyclerRegisterCourse;
     int id;
+    boolean isAll;
     IntentFilter intentFilter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,23 +28,36 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         recyclerRegisterCourse = findViewById(R.id.recyclerRegisterCourse);
+        TextView txtCourse = findViewById(R.id.txtCourse);
         intentFilter = new IntentFilter();
         intentFilter.addAction("DSMonHoc");
+        intentFilter.addAction("RegisterCourse");
 
         // id cua user
         SharedPreferences sharedPreferences = getSharedPreferences("THONGTIN", MODE_PRIVATE);
-        int id = sharedPreferences.getInt("id", -1);
+        id = sharedPreferences.getInt("id", -1);
+
+        // lay gia tri isAll
+        Intent intentIsAll = getIntent();
+        Bundle bundleIsAll = intentIsAll.getExtras();
+        isAll = bundleIsAll.getBoolean("isAll");
+        if(isAll){
+            txtCourse.setText("REGISTER COURSE");
+        }else{
+            txtCourse.setText("REGISTERED COURSE");
+        }
 
         Intent intent = new Intent(RegisterActivity.this, DKMonHocService.class);
         Bundle bundle = new Bundle();
         bundle.putInt("id", id);
+        bundle.putBoolean("isAll", isAll);
         intent.putExtras(bundle);
         startService(intent);
     }
     private void loadData(ArrayList<MonHoc> list){
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerRegisterCourse.setLayoutManager(linearLayoutManager);
-        DangKiMonHocAdapter adapter = new DangKiMonHocAdapter(this, list, id);
+        DangKiMonHocAdapter adapter = new DangKiMonHocAdapter(this, list, id, isAll);
         recyclerRegisterCourse.setAdapter(adapter);
     }
 
@@ -61,9 +78,16 @@ public class RegisterActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
             switch (intent.getAction()){
                 case "DSMonHoc":
+                case "RegisterCourse":
                     Bundle bundle = intent.getExtras();
-                    ArrayList<MonHoc> list = (ArrayList<MonHoc>) bundle.getSerializable("list");
-                    loadData(list);
+                    boolean check = bundle.getBoolean("check",true);
+                    if(check){
+                        ArrayList<MonHoc> list = (ArrayList<MonHoc>) bundle.getSerializable("list");
+                        loadData(list);
+                    }else{
+                        Toast.makeText(context, "Something was wrong! Please try agian!", Toast.LENGTH_SHORT).show();
+                        break;
+                    }
                     break;
             }
         }

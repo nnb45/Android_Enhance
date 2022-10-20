@@ -21,15 +21,21 @@ public class DangKyMonHocDAO {
         dbHelper = new DbHelper(context);
     }
     //lay danh sach mon hoc
-    public ArrayList<MonHoc> getDSMonHoc(int id){
+    public ArrayList<MonHoc> getDSMonHoc(int id, boolean isAll){
         ArrayList<MonHoc> list = new ArrayList<>();
 
         SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT mh.code, mh.name, mh.teacher, dk.id FROM MONHOC mh LEFT JOIN DANGKY dk ON mh.code = dk.code AND dk.id = ?", new String[]{String.valueOf(id)});
+        Cursor cursor;
+        if(isAll){
+            cursor = sqLiteDatabase.rawQuery("SELECT mh.code, mh.name, mh.teacher, dk.id FROM MONHOC mh LEFT JOIN DANGKY dk ON mh.code = dk.code AND dk.id = ?", new String[]{String.valueOf(id)});
+
+        }else {
+            cursor = sqLiteDatabase.rawQuery("SELECT mh.code, mh.name, mh.teacher, dk.id FROM MONHOC mh INNER JOIN DANGKY dk ON mh.code = dk.code WHERE dk.id = ?", new String[]{String.valueOf(id)});
+        }
         if (cursor.getCount() !=0){
             cursor.moveToFirst();
             do{
-                list.add(new MonHoc(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getInt(3)));
+                list.add(new MonHoc(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getInt(3), getThongTinMonHoc(cursor.getString(0))));
             }while (cursor.moveToNext());
         }
         return list;
@@ -46,19 +52,24 @@ public class DangKyMonHocDAO {
         return true;
 
     }
-//    public boolean huyDangKyMonHoc(int id, String code) {
-//        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
-//        long check = sqLiteDatabase.insert("DANGKY", null, new String[]{String.valueOf(id), code});
-//        if(check == -1)
-//            return false;
-//        return true;
-//    }
+    public boolean huyDangKyMonHoc(int id, String code) {
+        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+        long check = sqLiteDatabase.delete("DANGKY", "id = ? and code = ?", new String[]{String.valueOf(id), code});
+        if(check == -1)
+            return false;
+        return true;
+    }
 
-//    public ArrayList<ThongTin> getThongTinMonHoc(String code){
-//        ArrayList<ThongTin> list = new ArrayList<>();
-//        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
-//        Cursor cursor = sqLiteDatabase.rawQuery("SELECT date, address FROM THONGTIN WHERE");
-//
-//        return list;
-//    }
+    public ArrayList<ThongTin> getThongTinMonHoc(String code){
+        ArrayList<ThongTin> list = new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT date, address FROM THONGTIN WHERE code = ?", new String[]{code});
+        if(cursor.getCount() != 0){
+            cursor.moveToFirst();
+            do{
+                list.add(new ThongTin(cursor.getString(0), cursor.getString(1)));
+            }while (cursor.moveToNext());
+        }
+        return list;
+    }
 }

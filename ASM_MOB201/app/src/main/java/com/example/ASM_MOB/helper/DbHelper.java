@@ -17,7 +17,7 @@ public class DbHelper extends SQLiteOpenHelper {
         String dbMonHoc = "CREATE TABLE MONHOC(code text primary key, name text, teacher text)";
         sqLiteDatabase.execSQL(dbMonHoc);
 
-        String dbThongTin = "CREATE TABLE THONGTIN(id integer primary key autoincrement, code text, data text, address text)";
+        String dbThongTin = "CREATE TABLE THONGTIN(id integer primary key autoincrement, code text, date text, address text)";
         sqLiteDatabase.execSQL(dbThongTin);
 
         String dbDangKy = "CREATE TABLE DANGKY(id integer, code text)";

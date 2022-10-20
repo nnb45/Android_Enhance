@@ -3,6 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.ASM_MOB">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.INTERNET"
+        tools:ignore="ManifestOrder" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,7 +26,19 @@
         android:theme="@style/Theme.Lab1"
         tools:targetApi="31">
 
-<!--        man hinh demo-->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.facebook.sdk.ClientToken"
+            android:value="@string/facebook_client_token" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDQfm4jMw2F0FEUyeprvxi5Zz98bjGDM1Q" />
+
+
+        <!-- man hinh demo -->
         <activity
             android:name=".DemoScreenActivity"
             android:exported="true">
@@ -23,23 +47,16 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-<!--        man hinh login-->
+        </activity> <!-- man hinh login -->
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
-
-<!--        man hinh chinh-->
+            android:exported="false" /> <!-- man hinh chinh -->
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-
-
         <activity
             android:name=".CourseActivity"
             android:exported="false" />
-
         <activity
             android:name=".RegisterActivity"
             android:exported="true">
@@ -48,25 +65,41 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".MapsActivity"
             android:exported="false" />
-
         <activity
             android:name=".NewsActivity"
-            android:exported="false" />
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
+    </activity>
 
         <activity
             android:name=".SocialActivity"
             android:exported="false" />
+        <activity
+            android:name=".WebviewActivity"
+            android:exported="true" />
+
+
 
         <service android:name=".service.KiemTraDangNhapService" />
         <service android:name=".service.DKMonHocService" />
+        <service android:name=".service.RegisterCourseService"/>
     </application>
 
 </manifest>

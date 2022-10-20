@@ -4,38 +4,51 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
-import androidx.annotation.Nullable;
 
 import com.example.ASM_MOB.dao.DangKyMonHocDAO;
 import com.example.ASM_MOB.model.MonHoc;
 
 import java.util.ArrayList;
 
-public class DKMonHocService extends Service {
-
+public class RegisterCourseService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        //nhan data
         Bundle bundle = intent.getExtras();
-        int id = bundle.getInt("id");
+        int id = bundle.getInt("id", -1);
+        String code = bundle.getString("code", "");
+        int isRegister = bundle.getInt("isRegister", -1);
         boolean isAll = bundle.getBoolean("isAll");
 
+        boolean check;
         DangKyMonHocDAO dangKyMonHocDAO = new DangKyMonHocDAO(this);
-        ArrayList<MonHoc> list = dangKyMonHocDAO.getDSMonHoc(id, isAll);
+        if(isRegister == id){
+            check = dangKyMonHocDAO.huyDangKyMonHoc(id, code);
+        }else {
+            check = dangKyMonHocDAO.dangKyMonHoc(id, code);
+        }
 
+        ArrayList<MonHoc> list = new ArrayList<>();
+        if (check){
+            list = dangKyMonHocDAO.getDSMonHoc(id,isAll);
+        }
+        //send data (list) to
         Intent intentBR = new Intent();
         Bundle bundleBR = new Bundle();
         bundleBR.putSerializable("list", list);
+        bundleBR.putBoolean("check", check);
         intentBR.putExtras(bundleBR);
-        intentBR.setAction("DSMonHoc");
+        intentBR.setAction("RegisterCourse");
         sendBroadcast(intentBR);
 
         return super.onStartCommand(intent, flags, startId);
     }
 
-    @Nullable
+    public RegisterCourseService() {
+    }
+
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        // TODO: Return the communication channel to the service.
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 }
