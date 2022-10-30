@@ -96,7 +96,6 @@
             android:exported="true" />
 
 
-
         <service android:name=".service.KiemTraDangNhapService" />
         <service android:name=".service.DKMonHocService" />
         <service android:name=".service.RegisterCourseService"/>
