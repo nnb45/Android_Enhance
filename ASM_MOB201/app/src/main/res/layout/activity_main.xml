@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -42,11 +41,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Course"
                 android:padding="15dp"
+                android:text="Course"
                 android:textColor="@color/orange"
-                android:textStyle="bold"
-                android:textSize="28dp" />
+                android:textSize="28dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -68,11 +67,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Maps"
                 android:padding="15dp"
+                android:text="Maps"
                 android:textColor="@color/orange"
-                android:textStyle="bold"
-                android:textSize="28dp" />
+                android:textSize="28dp"
+                android:textStyle="bold" />
         </LinearLayout>
 
     </LinearLayout>
@@ -102,11 +101,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="News"
                 android:padding="15dp"
+                android:text="News"
                 android:textColor="@color/orange"
-                android:textStyle="bold"
-                android:textSize="28dp" />
+                android:textSize="28dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -128,27 +127,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Social"
                 android:padding="15dp"
+                android:text="Social"
                 android:textColor="@color/orange"
-                android:textStyle="bold"
-                android:textSize="28dp" />
+                android:textSize="28dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </LinearLayout>
 
-        <TextView
-            android:id="@+id/txtCopyright"
-            android:layout_width="wrap_content"
-            android:layout_height="55dp"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:padding="15dp"
-            android:textColor="#C9FF451C"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:text="© FALL2022 / BaoNgoc" />
+    <TextView
+        android:id="@+id/txtCopyright"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="© FALL2022 / BaoNgoc"
+        android:textColor="#C9FF451C"
+        android:textSize="18dp"
+        android:textStyle="bold" />
 
 </LinearLayout>
 
